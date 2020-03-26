@@ -42,7 +42,7 @@ What are my responsibilities once it is running?
 - scaling
 - recovery
 - logging
-- services 
+- services
 - app updates (zero downtime)
 
 app & service separation (12 factor)
@@ -67,8 +67,8 @@ What is Kubernetes?
 - kubectl run
   - deploys a pod (containers that can't be distributed)
 	- replica set (group of pods)
-	- deployment (versions replica sets)	
-- service ingress 
+	- deployment (versions replica sets)
+- service ingress
 - closer to the infrastructure
 - greater control
 - greater responsibility
@@ -84,7 +84,7 @@ What is Kubernetes?
 Workloads on each
 CF
 	- Stateless apps
-	- Web & workers 
+	- Web & workers
 K8s
 	- stateful
 	- Non-http workloads (other than workers)
@@ -98,7 +98,7 @@ K8s
 - KubeCF
  - smaller footprint/cost CF instances
  - in development
- - undergoing work to get to scale 
+ - undergoing work to get to scale
  - transparent to apps and users
 
 - Eirini
