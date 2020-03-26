@@ -9,12 +9,28 @@ CloudNative abstraction layers
 - functions
 - apps
 - containers
-- vms	
+- vms
 
 size, startup time, coupling increaeses lower down
 abstraction, flexibility, distribution increase higher up
 more to manage lower down
- 
+
+## Similarities
+
+* Both can run apps in containers
+* Both can run apps from Docker images
+* Both can mean that your app developers don't have to know which IaaS is being used
+* Kubernetes can do everything that CF does - you just need to choose, configure and maintain all the components yourself
+* CF cannot do everything that Kubernetes does - it is more opinionated
+
+## Differences
+
+* CF is Playmobil doll's house; Kubernetes is a box of Lego. KubeCF is Lego house kit?
+* CF has two personas: operator and developer. Kubernetes present the same experience to both
+* CF offers operators more control over what is running in the platform
+* Kubernetes is very extensible, CF is not
+* Kubernetes offers a lower level of control (ie scheduling based on presence of GPUs)
+
 
 How do I get an app running?
 - building the app (not a low code platform)
