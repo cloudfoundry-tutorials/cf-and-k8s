@@ -14,6 +14,13 @@ Going from low levels (more complicated, more control) to high (less complicated
 * Apps
 * Functions
 
+|            | Abstraction | Productivity | Efficiency | Start Speed | Restrictiveness |
+|------------|-------------|--------------|------------|-------------|-----------------|
+| VMs        | Low         | Low          | Low        | Slow        | Low             |
+| Containers | ↑           | ↑            | ↑          | ↑           | ↑               |
+| Apps       | ↓           | ↓            | ↓          | ↓           | ↓               |
+| Functions  | High        | High         | High       | Fast        | High            |
+
 ### Virtual Machines (VMs)
 
 VMs are distinct operating system instances that share the same physical hardware. Access to this physical hardware is provided by a special type of operating system called a hypervisor, which ensures that the VMs are isolated, so that they cannot access each other's data, and also enforces limits upon the VMs so that they cannot use more of the physical resources than they have been allocated.
