@@ -5,7 +5,7 @@ weight = "10"
 
 Workloads can be deployed to the cloud at varying levels of abstraction. High levels of abstraction provide simplicity at the cost of control; low levels of abstraction offer lots of control, but are more complicated. Generally speaking low levels of abstraction are older technologies, as newer technologies have built upon these to present more abstract and simpler interfaces.
 
-## What are the relevant layers of abstraction?
+## What are the relevant layers of abstraction?
 
 Going from low levels (more complicated, more control) to high (less complicated, less control), we have:
 
