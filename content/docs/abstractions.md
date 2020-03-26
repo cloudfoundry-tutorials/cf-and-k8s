@@ -3,7 +3,11 @@ title = "Abstraction Layers"
 weight = "10"
 +++
 
-Workloads can be deployed to the cloud at varying levels of abstraction. High levels of abstraction provide simplicity at the cost of control; low levels of abstraction offer lots of control, but are more complicated. Generally speaking low levels of abstraction are older technologies, as newer technologies have built upon these to present more abstract and simpler interfaces.
+Workloads can be deployed to the cloud at varying levels of abstraction.
+
+High levels of abstraction provide simplicity at the cost of control; low levels of abstraction offer lots of control, but are more complicated.
+
+Generally speaking, low levels of abstraction tend to be older technologies. Newer technologies have built upon these to present simpler, more productive interfaces.
 
 ## What are the relevant layers of abstraction?
 
@@ -14,12 +18,12 @@ Going from low levels (more complicated, more control) to high (less complicated
 * Apps
 * Functions
 
-|            | Abstraction | Productivity | Efficiency | Start Speed | Restrictiveness |
-|------------|-------------|--------------|------------|-------------|-----------------|
-| VMs        | Low         | Low          | Low        | Slow        | Low             |
-| Containers | ↑           | ↑            | ↑          | ↑           | ↑               |
-| Apps       | ↓           | ↓            | ↓          | ↓           | ↓               |
-| Functions  | High        | High         | High       | Fast        | High            |
+|                | Abstraction | Productivity | Efficiency | Start Speed | Restrictiveness |
+|----------------|-------------|--------------|------------|-------------|-----------------|
+| **VMs**        | Low         | Low          | Low        | Slow        | Low             |
+| **Containers** | ↑           | ↑            | ↑          | ↑           | ↑               |
+| **Apps**       | ↓           | ↓            | ↓          | ↓           | ↓               |
+| **Functions**  | High        | High         | High       | Fast        | High            |
 
 ### Virtual Machines (VMs)
 
@@ -27,7 +31,11 @@ VMs are distinct operating system instances that share the same physical hardwar
 
 VMs are easy for traditional IT teams to adopt, as they can be treated very similarly to physical servers. VMs require a lot of configuration before that can run workloads: a guest operating system must be chosen, virtual networks must be configured, software must be installed, and applications deployed on the VM. All these must then be kept running and up-to-date.
 
-Examples of hypervisor include KVM, ESXI, Xen and others. Popular systems that manage VMs across many hypervisors include VMware vSphere, OpenStack Nova, AWS EC2, Google Cloud Compute Engine, and Azure.
+Examples of hypervisor include KVM, ESXI, Xen and others.
+
+Hypervisors alone are time-consuming and cumbersome to manage. What happens if a physical host fails? How do VMs get restarted on healthy hosts? How do we decide where to place VMs in the first place? Infrastructure-as-a-Service (IaaS) systems offer solutions to these problems, allowing operators to create VMs without having to worry about the underlying physical hardware.
+
+Popular IaaS offerings that manage VMs across many hypervisors include VMware vSphere, OpenStack Nova, AWS EC2, Google Cloud Compute Engine, and Azure VMs.
 
 ### Containers
 
