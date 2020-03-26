@@ -53,5 +53,11 @@ Notice that all of these dependencies are at the language level - they are not t
 
 ### Functions
 
+Many apps contain functionality that need only execute when an event happens, such as a HTTP request is made, or a message is delivered to a queue. This functionality can be modelled as a function: for a given input, some processing is done and an output is given.
+
+Rather than writing systems as one unit of code in the form of an application, instead they can be decomposed into individual functions. This enforces decoupling of code, and can be much more resource-efficient as processes are only running when they're actually needed.
+
+Functions must be written for a Functions-as-a-Service platform, such as OpenFaaS, OpenWhisk, Riff, Knative and more.
+
 
 
