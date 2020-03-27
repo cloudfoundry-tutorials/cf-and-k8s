@@ -1,6 +1,6 @@
 +++
 title = "Abstraction Layers"
-weight = "10"
+weight = "100"
 +++
 
 Workloads can be deployed to the cloud at varying levels of abstraction.
