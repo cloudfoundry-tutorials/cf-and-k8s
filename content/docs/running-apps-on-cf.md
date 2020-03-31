@@ -130,12 +130,48 @@ You can specify one or more URLs (routes in Cloud Foundry parlance), or let Clou
 
 ### Connect to data services
 
+It is explained elsewhere in this guide that it would be quite unusual to run persistent data services (databases) _in_ Cloud Foundry. Instead these are run elsewhere, and a Service Broker offers programmatic automated provisioning of these data services. Operators choose which Service Brokers to tell their Cloud Foundry about, meaning that they can maintain control of approved and supported services.
+
+The details of provisioned services are provided to apps running in Cloud Foundry via an environment variable. This means that your application needs to know how to interpret this environment variable: thankfully, there are libraries available in many common languages that can do exactly that.
+
+If you do not want to automate provisioning of services (for example, schemas a manually-configured Oracle cluster) then you can tell Cloud Foundry about User Provided Service Instances. In this case a Cloud Foundry user runs a command that stores the service's details in Cloud Foundry, meaning that an application can be provided these details via an environment variable in exactly the same way as if it had be automatically created. In this way apps don't need to know if their service was created by automation, or by a human.
+
 ## Keeping it running
 
 ### Scaling in response to load
 
+Cloud Foundry does not offer auto-scaling 'out of the box', and instead a top-level [App Autoscaler](https://github.com/cloudfoundry/app-autoscaler) project is provided which can be deployed by Cloud Foundry operators. Public Cloud Foundry platforms like Pivotal Web Services offer App Autoscaler as a marketplace service.
+
+Users can also scale apps both horizontally (add more instances) and vertically (add more RAM) via the command line with the `cf scale` command.
+
 ### Recovery from failures
+
+Cloud Foundry will restart unhealthy apps up to 200 times in an exponential back-off before concluding that they're irrecoverably broken.
+
+Users can choose from three types of health check:
+
+1. Is the process running?
+1. Is the process accepting TCP connections on a given port?
+1. Is the app returning HTTP 200 responses at a given path?
+
+Unlike Kubernetes, Cloud Foundry does not have a separate 'readiness' check. If an app is healthy, then Cloud Foundry considers it fit to serve traffic.
 
 ### Logging
 
+Cloud Foundry makes it very easy to see logs from all application instances at once with the `cf logs` command. This can either tail logs, or show recent log output.
+
+Cloud Foundry automatically adds certain log entries to the log stream for an app. Whenever a HTTP request to the app flows through Cloud Foundry's GoRouter (which is equivalent to a Kubernetes HTTP ingress), a log entry is added showing the size, response code and processing time. Additionally events such as app crashes and restart are added to the log stream.
+
+App logs in Cloud Foundry are entirely in-memory, reducing the amount of disk I/O required. If logs need to be persisted for operability and regulatory reasons, Cloud Foundry can be configured to send logs to an external system like ELK or Splunk.
+
 ### Zero-downtime updates
+
+Cloud Foundry offers several ways to achieve zero-downtime updates of applications.
+
+The newest and simplest is to use the latest version 7 of the `cf` CLI, which offers the following:
+
+```terminal
+$ cf push --strategy rolling
+```
+
+If more control is required, Cloud Foundry has always offered access to the primitives to make a zero-downtime deployment via the mapping of HTTP routes. Whilst this has the advantage of allowing users to create more bespoke workflows, in most cases these are not necessary.
