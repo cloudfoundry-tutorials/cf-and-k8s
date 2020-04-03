@@ -54,6 +54,12 @@ By way of analogy, one can imagine that **Cloud Foundry is a doll's house**, and
 
 **Kubernetes** offers a huge amount of flexibility, and **can be configured and extended to support virtually any workflow**. As such, you could assemble your own set of components on Kubernetes that replicate the functionality of Cloud Foundry.
 
+### Exposed Complexity
+
+**Cloud Foundry hides implementation details**. This is why Cloud Foundry talks in terms of apps, rather than containers. It abstracts away the complexity inside the platform, presenting a simpler interface.
+
+**Kubernetes hides nothing**, and exposes its full power, flexibility and complexity to all users. Many Kubernetes enthusiasts enjoy revelling in the implementation details, and curating sets of components that work together to create a productive platform.
+
 ### Personas
 
 **Cloud Foundry** has **different user experiences** for **operators** and for **application developers**. It presents a simplified interface to developers, whilst offering controls to operators so that they can restrict what is running on their platform.
