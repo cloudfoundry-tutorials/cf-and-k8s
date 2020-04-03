@@ -1,15 +1,15 @@
 +++
-title = "Abstraction Layers"
+title = "Abstraction Levels"
 weight = "40"
 +++
 
-Workloads can be deployed to the cloud at varying levels of abstraction.
+Workloads can be deployed to the cloud at varying levels of abstraction. Understanding the difference between the levels of abstraction may help you decide which technology is most appropriate for different workloads.
 
 High levels of abstraction provide simplicity at the cost of control; low levels of abstraction offer lots of control, but are more complicated.
 
 Generally speaking, low levels of abstraction tend to be older technologies. Newer technologies have built upon these to present simpler, more productive interfaces.
 
-## What are the relevant layers of abstraction?
+## What are the relevant levels of abstraction?
 
 Going from low levels (more complicated, more control) to high (less complicated, less control), we have:
 
