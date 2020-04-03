@@ -11,7 +11,7 @@ It's important to note that these steps are the same regardless of whether your 
 
 ### Write the application
 
-Most Cloud Foundry users deploy apps that have been written in-house. Whilst Cloud Foundry has automation to make running applications from source code easy, it also supports running Docker images if you need to run some off-the-shelf software.
+Most Cloud Foundry users deploy apps that have been written in-house. Whilst Cloud Foundry has automation to make running applications from source code easy, it also supports running Docker images if you need to run some off-the-shelf software. This can be disabled if you want tighter control over what codes is running in the platform.
 
 The example output in this guide was gained by pushing the [US Government's PHP 'Hello World' example app](https://github.com/18F/cf-hello-worlds/tree/master/php). The manifest was deleted, to show what Cloud Foundry will do when provided the bear minimum information.
 
@@ -127,6 +127,8 @@ routes:            php-test.cfapps.io
 ```
 
 You can specify one or more URLs (routes in Cloud Foundry parlance), or let Cloud Foundry pick one at random. This flexible route manipulation can be used to orchestrate complex zero-downtime-deployment workflows.
+
+Operators need to ensure that DNS records have been created that point to a load balancer, which in turn directs traffic to the Cloud Foundry instance. Currently HTTP ingress is handled by a component called GoRouter, but this is being swapped out for Istio.
 
 ### Connect to data services
 
