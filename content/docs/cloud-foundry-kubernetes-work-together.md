@@ -7,7 +7,7 @@ Cloud Foundry can be deployed on top of Kubernetes - you don't have to choose be
 
 Because Kubernetes can run any workload distributed as container images, Kubernetes can run the components of Cloud Foundry itself.
 
-When installed on Kubernetes, Cloud Foundry presents a streamlined self-service interface for application developers to deploy apps onto Kubernetes, whilst allowing the Kubernetes operators to maintain more control over what is running on the system.
+When installed on Kubernetes, **Cloud Foundry presents a streamlined self-service interface for application developers to deploy apps onto Kubernetes**, whilst allowing the Kubernetes **operators to maintain more control** over what is running on the system.
 
 ## Benefits
 
