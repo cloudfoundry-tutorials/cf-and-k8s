@@ -21,3 +21,7 @@ Kubernetes can run anything in an OCI container image. It can run the same appli
 ## Running Cloud Foundry on Kubernetes
 
 Because Kubernetes is designed to be as generic as possible, you can run the components of Cloud Foundry itself _on_ Kubernetes!
+
+## Running Cloud Foundry _without_ Kubernetes
+
+Cloud Foundry has existed for twice as long as Kubernetes, and so has historically been deployed on virtual machines (VMs) using a tool called BOSH. You will find occasional references to Cloud Foundry on VMs and to BOSH throughout this guide.
