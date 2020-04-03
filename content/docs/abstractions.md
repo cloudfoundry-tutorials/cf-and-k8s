@@ -1,5 +1,5 @@
 +++
-title = "Abstraction Levels"
+title = "Abstraction levels"
 weight = "40"
 +++
 
