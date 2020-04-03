@@ -20,6 +20,7 @@ Once it's up and running, we need to consider how to operate it too:
 * Recovery from failures
 * Logging
 * Zero-downtime updates
+* Patching
 
 ## Getting it running
 
@@ -72,3 +73,9 @@ As well as reading those logs interactively, we'd also like to store them somewh
 ### Zero-downtime updates
 
 It's rare for an app to be deployed only once! We'll need to add enhancements, fix bugs, and apply security fixes. When we do, we'd like to be able to do so without our users noticing.
+
+### Patching
+
+Applications need to be updated throughout their life. The last few years have seen several critical zero-day vulnerabilities in common libraries that have needed patching as soon as possible.
+
+In some enterprise environments, the teams that built an application may have been disbanded by the time a critical update is required. They may not have even left functioning continuous integration pipelines to build a new version of the application.

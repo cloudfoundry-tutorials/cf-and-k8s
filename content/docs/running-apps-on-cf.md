@@ -189,3 +189,17 @@ $ cf push --strategy rolling
 ```
 
 If more control is required, Cloud Foundry has always offered access to the primitives to make a zero-downtime deployment via the mapping of HTTP routes. Whilst this has the advantage of allowing users to create more bespoke workflows, in most cases these are not necessary.
+
+### Patching
+
+**Operators of Cloud Foundry can rebuild application container images** without the involvement of application developers.
+
+Cloud Foundry uses buildpacks to combine app code, dependencies, and a root filesystem together into a container image.
+
+If a vulnerability is discovered in the app code, it is expected that a code change is required and the app is re-pushed.
+
+If the dependencies have a vulnerability (e.g. a new version of Java is required) then the operator installs the latest buildpack into Cloud Foundry. The **operator then rebuilds the container image** in a process known as _restaging_, where the buildpack is run again against the app code. Because Cloud Foundry stores the app code that was initially pushed, this can be **done without developer involvement**.
+
+If the vulnerability is in the root filesystem (shared by many apps regardless of buildpack) then the process is nearly the same - the Cloud Foundry operator installs the new root filesystem ('stack'), and restages apps accordingly.
+
+Note that this process does not work for Docker-based apps, which do not use buildpacks. This is one of the reasons why support for them can be disabled in Cloud Foundry.

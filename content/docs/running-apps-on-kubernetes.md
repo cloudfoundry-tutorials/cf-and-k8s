@@ -113,3 +113,9 @@ Waiting for deployment "my-app" rollout to finish: 3 of 5 updated replicas are a
 Waiting for deployment "my-app" rollout to finish: 4 of 5 updated replicas are available...
 deployment "my-app" successfully rolled out
 ```
+
+### Patching
+
+Kubernetes has no way of knowing which layers of a container image are app code, and which provide underlying dependencies or a root filesystem. For this reason, Kubernetes alone cannot rebuild images on demand.
+
+This problem is typically solved through the combined use of **continuous integration** pipelines, and **image-scanning tools** such as [Snyk](https://snyk.io/blog/putting-container-security-in-the-hands-of-developers/). Rebuilding and redeployment of images may depend on collaboration between app developers and operators.
