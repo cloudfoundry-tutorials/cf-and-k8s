@@ -13,7 +13,7 @@ One stark difference is that, in comparison to Cloud Foundry's one-or-two opinio
 
 Kubernetes can run **any application that is packaged as an OCI container image**. This means all app code needs to be built into an image before it can be deployed (see below).
 
-Cloud Foundry allows the pushing of Docker image-based apps to be disabled, to make it less likely that unauthorised, external code is run on the platform. This is clearly not possible on Kubernetes, so some consideration may be given to preventing untrusted code from reaching the platform.
+Cloud Foundry allows the pushing of Docker image-based apps to be disabled, to make it less likely that unauthorised, external code is run on the platform. This is not possible on Kubernetes and so some consideration may be given to preventing untrusted code from reaching the platform.
 
 Kubernetes operators may choose to use tools like [Notary](https://github.com/theupdateframework/notary) to **sign images** and thus **prove their provenance**. Kubernetes can be configured to pull images only from a private registry.
 
@@ -23,7 +23,7 @@ Most folks will be familiar with using Docker to build an container image from a
 
 The simplest approach is for a developer to **run `docker build`** from their machine, and then **push the image to a registry** that the target Kubernetes can access.
 
-In an enterprise environment, the building of images should be automated by a CI server, or automation running inside the Kubernetes cluster - the KNative project has elements which can automatically rebuild images when code changes are pushed.
+In an enterprise environment, the building of images should be automated by a CI server, or automation running inside the Kubernetes cluster such as [WeaveWorks' Flux](https://www.weave.works/oss/flux/).
 
 Alternative approaches exist. If you wanted to leverage the power of buildpacks, you could use the [`pack` CLI](https://github.com/buildpacks/pack) to build an image from your source code.
 
@@ -37,7 +37,7 @@ On a **hosted Kubernetes** service like GKE, **a developer could create a LoadBa
 
 If there is no LoadBalancer Service available then the same approach could be taken, albeit provisioning the load balancer out-of-band.
 
-The experience may be made more uniform and user-friendly through **use of an Ingress**. An Ingress comprises two components: a deployment of pods that actually handle HTTP traffic (such as NGiNX) and a controller which watches the Kubernetes API to see if new rules have been applied, or new pods deployed. The Ingress can be configured to direct traffic according to a number of strategies depending on your preference. An Ingress is functionally equivalent to the Cloud Foundry GoRouter.
+The experience may be made more uniform and user-friendly through **use of an Ingress**. An Ingress comprises two components: a deployment of pods that actually handle HTTP traffic (such as [NGiNX](https://github.com/kubernetes/ingress-nginx)) and a controller which watches the Kubernetes API to see if new rules have been applied, or new pods deployed. The Ingress can be configured to direct traffic according to a number of strategies depending on your preference. An Ingress is functionally equivalent to the Cloud Foundry GoRouter.
 
 ### Connect to data services
 
@@ -47,9 +47,9 @@ There is **no single approach to deploying data services in Kubernetes**. Develo
 
 Applications running in Kubernetes can be configured to know about data services via **Config Maps**, which inject data both via environment variables and flat files on disk. Sensitive data (e.g. **credentials) can be injected as Secrets**, which are encrypted at rest. Access and credential management will need to be considered.
 
-Various data service vendors offer CRDs and controllers that implement the 'operator' pattern. These processes run inside the Kubernetes cluster, and watch for new configuration to be submitted to the cluster. They then take appropriate action, such as creating new users or schema. Each implementation is unique and will offer custom functionality.
+Various data service vendors offer CRDs and controllers that implement [the 'operator' pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/). These processes run inside the Kubernetes cluster, and watch for new configuration to be submitted to the cluster. They then take appropriate action, such as creating new users or schema. Each implementation is unique and will offer custom functionality.
 
-Most IaaS providers offer Cloud Controller Managers that register CRDs and can then dynamically provision new IaaS services, such as hosted databases.
+Most IaaS providers offer Kubernetes extensions called Cloud Controller Managers that register CRDs and can then dynamically provision new IaaS services, such as hosted databases.
 
 Operators may choose to run data services on behalf of developers, and issue connection details and credentials when requested.
 
@@ -83,7 +83,7 @@ Kubernetes allows logs to be retrieved via the `kubectl logs` command.
 
 **Logs can only be followed for one particular pod**, or app instance. If you want to stream logs across all of your app instances, then additional software will be required. CLIs like [Stern](https://github.com/wercker/stern) are available, or a more comprehensive solution can be architected (likely involving something like [FluentD](https://www.fluentd.org/)) and an external indexer, as described below.
 
-`kubectl` can retrieve historic logs from a number of different pods by using the `--selector` flag - it's only following logs that doesn't work across many instances.
+`kubectl` can retrieve historic logs from a number of different pods by using the `--selector` flag - it's only _following_ logs that doesn't work across many instances.
 
 ```terminal
 $ kubectl logs --selector run=my-app
