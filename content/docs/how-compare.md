@@ -3,6 +3,12 @@ title = "How do Cloud Foundry and Kubernetes compare?"
 weight = "30"
 +++
 
+Cloud Foundry is supplemental to Kubernetes - you can install Cloud Foundry on Kubernetes to make app developers more productive.
+
+Application developers could use Kubernetes _without_ Cloud Foundry. The opposite is also true: Cloud Foundry has existed for longer than Kubernetes, so it's also possible to use Cloud Foundry _without_ Kubernetes.
+
+In this section we explore how the two systems differ from and resemble each other.
+
 ## Overview
 
 The following [diagram from EngineerBetter](https://github.com/EngineerBetter/k8s-is-not-a-paas) summarises the _out of the box_ functionality provided by a traditional IaaS, Cloud Foundry deployed to virtual machines with BOSH, Kubernetes, hosted Kubernetes services like Google's GKE, and Cloud Foundry deployed on top of Kubernetes:
@@ -11,7 +17,7 @@ The following [diagram from EngineerBetter](https://github.com/EngineerBetter/k8
 
 The diagram shows that:
 
-* Cloud Foundry fits very well on top of Kubernetes
+* Cloud Foundry complements Kubernetes by providing a single distribution of additional functionality that is pre-configured to work together
 * Kubernetes can be extended to offer the same functionality as Cloud Foundry
 * Cloud Foundry can be deployed to virtual machines with BOSH if an organisation does not use or is not yet using Kubernetes
 
