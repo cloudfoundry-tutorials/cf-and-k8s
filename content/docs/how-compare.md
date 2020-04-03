@@ -58,7 +58,7 @@ By way of analogy, one can imagine that **Cloud Foundry is a doll's house**, and
 
 **Cloud Foundry** has **different user experiences** for **operators** and for **application developers**. It presents a simplified interface to developers, whilst offering controls to operators so that they can restrict what is running on their platform.
 
-*Kubernetes* presents the same user interface for all its users. Out-of-the-box, **application developers and operators interact with Kubernetes the same way**.
+**Kubernetes** presents the same user interface for all its users. Out-of-the-box, **application developers and operators interact with Kubernetes the same way**.
 
 ### Operator Control
 
