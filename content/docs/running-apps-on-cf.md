@@ -11,16 +11,14 @@ It's important to note that these steps are the same regardless of whether your 
 
 ### Write the application
 
-Most Cloud Foundry users deploy apps that have been written in-house. Whilst Cloud Foundry has automation to make running applications from source code easy, it also supports running Docker images if you need to run some off-the-shelf software. This can be disabled if you want tighter control over what codes is running in the platform.
-
-The example output in this guide was gained by pushing the [US Government's PHP 'Hello World' example app](https://github.com/18F/cf-hello-worlds/tree/master/php). The manifest was deleted, to show what Cloud Foundry will do when provided the bear minimum information.
+Most Cloud Foundry users deploy apps that have been written in-house. Whilst Cloud Foundry has automation to make running applications from source code easy, it also supports running Docker images if you need to run some off-the-shelf software. This can be disabled if you want tighter control over what code is running in the platform.
 
 ### Build a container image
 
 To go from app source code to running container, one single command is required:
 
 ```terminal
-$ cf push my-app
+$ cf push php-test
 ```
 
 This command is run from a directory with a copy of the source code. Whilst there are many options that can be specified either in-line or in a YAML manifest file, Cloud Foundry will assume that your app speaks HTTP and will configure sensible defaults.
@@ -34,7 +32,7 @@ Uploading files...
  331 B / 331 B [========================================================================================================================================================] 100.00% 1s
 ```
 
-In a process called staging, Cloud Foundry creates a reusable container image from your app code. It does this using buildpacks, which can intelligently detect the type of app you've pushed, and build a container image with all the things it needs (such as the Ruby runtime for a Ruby app). The source code is saved inside Cloud Foundry, so that if an operator needs to rebuild the image, they can do so without the involvement of app developers.
+In a process called staging, **Cloud Foundry creates a reusable container image** from your app code. It does this using buildpacks, which can intelligently detect the type of app you've pushed, and build a container image with all the things it needs (such as the Ruby runtime for a Ruby app). The source code is saved inside Cloud Foundry, so that if an operator needs to rebuild the image, they can do so without the involvement of app developers.
 
 Here we can see the staging process getting the ordered list of buildpacks, and trying each of them to see if they can handle the PHP app that has been pushed. You can skip this process by _telling_ Cloud Foundry which buildpack to use.
 
@@ -136,7 +134,11 @@ It is explained elsewhere in this guide that it would be quite unusual to run pe
 
 The details of provisioned services are provided to apps running in Cloud Foundry via an environment variable. This means that your application needs to know how to interpret this environment variable: thankfully, there are libraries available in many common languages that can do exactly that.
 
-If you do not want to automate provisioning of services (for example, schemas a manually-configured Oracle cluster) then you can tell Cloud Foundry about User Provided Service Instances. In this case a Cloud Foundry user runs a command that stores the service's details in Cloud Foundry, meaning that an application can be provided these details via an environment variable in exactly the same way as if it had be automatically created. In this way apps don't need to know if their service was created by automation, or by a human.
+* `cf marketplace` shows all the services that developers can automatically create
+* `cf create-service` creates a service instance, e.g. a MySQL database
+* `cf bind-service` tells the platform that an app will be accessing a service, prompting the Service Broker to generate credentials, which Cloud Foundry then provides to the app
+
+If you do not want to automate provisioning of services (e.g. schema in a manually-configured Oracle cluster) then you can tell Cloud Foundry about User Provided Service Instances. In this case a Cloud Foundry user runs a command that stores the service's details in Cloud Foundry, meaning that an application can be provided these details via an environment variable in exactly the same way as if it had be automatically created. In this way apps don't need to know if their service was created by automation, or by a human.
 
 ## Keeping it running
 
@@ -163,6 +165,16 @@ Unlike Kubernetes, Cloud Foundry does not have a separate 'readiness' check. If 
 Cloud Foundry makes it very easy to see logs from all application instances at once with the `cf logs` command. This can either tail logs, or show recent log output.
 
 Cloud Foundry automatically adds certain log entries to the log stream for an app. Whenever a HTTP request to the app flows through Cloud Foundry's GoRouter (which is equivalent to a Kubernetes HTTP ingress), a log entry is added showing the size, response code and processing time. Additionally events such as app crashes and restart are added to the log stream.
+
+In the following output we can see log messages for _all_ instances of our app, along with other messages from Cloud Foundry (marked `CELL`) and the GoRouter which directs HTTP traffic to the app (marked `RTR`):
+
+```terminal
+$ cf logs php-test --recent
+
+2020-04-03T12:59:23.80+0100 [CELL/0] OUT Container became healthy
+2020-04-03T13:00:18.46+0100 [RTR/3] OUT php-test.cfapps.io - [2020-04-03T12:00:18.451294340Z] "GET / HTTP/1.1" 200 0 21 "-" "curl/7.64.1" "10.10.66.172:25616" "10.10.149.78:61090" x_forwarded_for:"146.199.157.1, 10.10.66.172" x_forwarded_proto:"http" vcap_request_id:"14db7c46-3630-4b8b-7078-f1d76cd00644" response_time:0.012676 gorouter_time:0.000103 app_id:"442f2b57-836b-47ba-9eb3-faa007253361" app_index:"0" x_b3_traceid:"1fc51556aa0458c1" x_b3_spanid:"1fc51556aa0458c1" x_b3_parentspanid:"-" b3:"1fc51556aa0458c1-1fc51556aa0458c1"
+2020-04-03T13:00:18.48+0100 [APP/PROC/WEB/0] OUT 12:00:18 Hello, world!
+```
 
 App logs in Cloud Foundry are entirely in-memory, reducing the amount of disk I/O required. If logs need to be persisted for operability and regulatory reasons, Cloud Foundry can be configured to send logs to an external system like ELK or Splunk.
 
