@@ -1,6 +1,6 @@
 +++
 title = "How do Cloud Foundry and Kubernetes compare?"
-weight = "7"
+weight = "30"
 +++
 
 ## Overview

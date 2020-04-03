@@ -1,6 +1,6 @@
 +++
 title = "Running apps on Cloud Foundry"
-weight = "20"
+weight = "60"
 +++
 
 Having already looked at the abstract steps that are required to get and keep an app running, let's look in more detail at what that experience looks like when using Cloud Foundry.

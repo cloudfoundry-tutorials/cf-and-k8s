@@ -1,6 +1,6 @@
 +++
 title = "How do Cloud Foundry and Kubernetes work together?"
-weight = "10"
+weight = "20"
 +++
 
 Cloud Foundry can be deployed on top of Kubernetes - you don't have to choose between the two.

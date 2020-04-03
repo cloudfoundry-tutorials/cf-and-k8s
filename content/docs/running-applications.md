@@ -1,6 +1,6 @@
 +++
 title = "What is involved in running an application?"
-weight = "10"
+weight = "50"
 +++
 
 In this section we'll look at what things need to happen in order to go from some source code (or compiled code in the case of Java applications) to a running application in the cloud.

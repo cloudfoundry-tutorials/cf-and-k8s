@@ -1,6 +1,6 @@
 +++
 title = "What are Cloud Foundry and Kubernetes?"
-weight = "5"
+weight = "10"
 +++
 
 Whilst we've covered "What is Cloud Foundry" in another tutorial, and there are plenty of great resources explaining Kubernetes, let's summarise them in context of each other.
