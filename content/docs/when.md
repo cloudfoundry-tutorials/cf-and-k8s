@@ -22,3 +22,5 @@ You should consider using Kubernetes _without_ Cloud Foundry when you want:
 * to run more off-the-shelf software than in-house software
 * to exploit a mature continuous integration/deployment practice that can automate the rebuilding of patched images
 * low-level control over workloads, for example accessing GPUs for machine-learning
+
+These options need not be mutually exclusive. Perhaps you might have many teams of agile app development teams using Cloud Foundry installed on a few large Kubernetes clusters, whilst folks with more unique requirements and greater infrastructure knowledge have their own Kubernetes clusters and access them without Cloud Foundry.
