@@ -12,7 +12,7 @@ While we've covered "What is Cloud Foundry" in another tutorial, and there are p
 In short, Cloud Foundry is an opinionated application-focused platform, while [Kubernetes is a platform for building platforms](https://twitter.com/kelseyhightower/status/935252923721793536?s=20). 
 
 
-## Different Tools, Different Uses
+## Different Tools, Different Goals
 
 Cloud Foundry and Kubernetes differ in their focus. The focus of Cloud Foundry is applications, while the focus of Kubernetes is containers. When asked to compare Cloud Foundry and Kubernetes, Chip Childers, Executive Director of the Cloud Foundry Foundation had this to say:
 
