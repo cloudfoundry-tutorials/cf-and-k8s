@@ -1,5 +1,5 @@
 +++
-title = "Comparing CF and Kubernetes"
+title = "A Deeper Comparison"
 weight = "2"
 +++
 
