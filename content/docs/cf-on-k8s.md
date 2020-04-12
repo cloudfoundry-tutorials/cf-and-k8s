@@ -1,11 +1,9 @@
 +++
-title = "CF plus Kubernetes"
-weight = "3"
+title = "CF on Kubernetes"
+weight = "4"
 +++
 
 Often the answer for an organziation is not "Cloud Foundry or Kubernetes" but rather "Cloud Foundry and Kubernetes". It is a powerful combination. Cloud Foundry can provide significant development and operational efficiency to software development organizations. Kubernetes can provide rest. They can be deployed side by side, or Cloud Foundry can run on Kubernetes.
-
-
 
 
 ## Deploying CF on Kubernetes
