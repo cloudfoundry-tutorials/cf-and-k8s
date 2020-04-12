@@ -1,12 +1,7 @@
 +++
-title = "CF on Kubernetes"
+title = "Deploying CF on Kubernetes"
 weight = "4"
 +++
-
-Often the answer for an organziation is not "Cloud Foundry or Kubernetes" but rather "Cloud Foundry and Kubernetes". It is a powerful combination. Cloud Foundry can provide significant development and operational efficiency to software development organizations. Kubernetes can provide rest. They can be deployed side by side, or Cloud Foundry can run on Kubernetes.
-
-
-## Deploying CF on Kubernetes
 
 Because Kubernetes can run any workload distributed as container images, Kubernetes can run Cloud Foundry itself. When installed on Kubernetes, **Cloud Foundry presents a streamlined self-service interface for application developers to deploy apps onto Kubernetes**, whilst allowing the Kubernetes **operators to maintain more control** over what is running on the system. For any workload not suited for Cloud Foundry, Kubernetes can be used directly.
 
