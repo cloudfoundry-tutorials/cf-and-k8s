@@ -101,3 +101,5 @@ In conclusion, Cloud Foundry's significant agility and ease of use come from hig
 On the flip side, Kubernetes is far more flexible. However, you have to implement, automate, and operate the platform solutions and constructs on top of Kubernetes yourself. Essentially, you have to build a platform that will look an awful lot like Cloud Foundry.
 
 Therefore, it is often best to use Cloud Foundry _and_ Kubernetes together, thereby reaping the efficiency, compliance, and security gains built into Cloud Foundry for the majority of your application workloads while maintaining the flexibility and extensibility of the Kubernetes ecosystem for the rest. You can even gain efficiency in the Cloud Foundry platform itself by running it on top of Kubernetes. We explore these options in the next sections of the tutorial.
+
+In the next section, we provide some general guidelines for determining the correct platform for your organization and workloads.
