@@ -29,4 +29,6 @@ You should consider using Kubernetes _without_ Cloud Foundry when you want:
 
 These options need not be mutually exclusive. Perhaps you might have many teams of agile app development teams using Cloud Foundry installed on a few large Kubernetes clusters, whilst folks with more unique requirements and greater infrastructure knowledge have their own Kubernetes clusters and access them without Cloud Foundry.
 
-The rest of this tutorial takes a deeper look at how the two technologies are similar, differ, and ultimately compliment each other.
+## Tutorial Roadmap
+
+The rest of this tutorial takes a deeper look at how the two technologies are similar, differ, and ultimately compliment each other. Next, we look at the common cloud abstractions before looking at deploying applications. Lastly, we discuss options for running Cloud Foundry on or with Kubernetes.

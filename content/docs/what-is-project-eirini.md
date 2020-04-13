@@ -1,6 +1,6 @@
 +++
 title = "What is Project Eirini?"
-weight = "80"
+weight = "9"
 +++
 
 Unless you're particularly interested in _how_ Cloud Foundry and Kubernetes create containers, you don't really need to know what Project Eirini is or how it works. It's an implementation detail that is only really of concern to people operating Cloud Foundry.

@@ -1,6 +1,6 @@
 +++
 title = "Deploying CF on Kubernetes"
-weight = "4"
+weight = "8"
 +++
 
 Because Kubernetes can run any workload distributed as container images, Kubernetes can run Cloud Foundry itself. When installed on Kubernetes, **Cloud Foundry presents a streamlined self-service interface for application developers to deploy apps onto Kubernetes**, whilst allowing the Kubernetes **operators to maintain more control** over what is running on the system. For any workload not suited for Cloud Foundry, Kubernetes can be used directly.

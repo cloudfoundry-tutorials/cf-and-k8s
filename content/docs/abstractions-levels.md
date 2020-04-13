@@ -1,6 +1,6 @@
 +++
 title = "Abstraction levels"
-weight = "40"
+weight = "4"
 +++
 
 Workloads can be deployed to the cloud at varying levels of abstraction. Understanding the difference between the levels of abstraction may help you decide which technology is most appropriate for different workloads.

@@ -1,6 +1,6 @@
 +++
-title = "Running apps on Kubernetes"
-weight = "70"
+title = "Applications on Kubernetes"
+weight = "7"
 +++
 
 In earlier sections we looked at the conceptual steps to get and keep an app running, and also what those look like when using Cloud Foundry. In this section we'll look at the same steps when using Kubernetes directly, _without_ Cloud Foundry.
