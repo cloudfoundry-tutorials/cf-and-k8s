@@ -1,5 +1,5 @@
 +++
-title = "Deploying CF on Kubernetes"
+title = "Cloud Foundry on Kubernetes"
 weight = "8"
 +++
 
