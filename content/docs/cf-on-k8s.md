@@ -15,8 +15,8 @@ Compared to running Cloud Foundry on virtual machines (via [BOSH](https://bosh.i
 
 Currently, two open source projects aim to bring the `cf push` experience to Kubernetes:
 
-**[KubeCF](https://github.com/cloudfoundry-incubator/kubecf)** is currently the most widely-adopted Cloud Foundry distribution available for Kubernetes that you can install yourself. SUSE provide a commercial version called [SUSE Cloud Application Platform](https://www.suse.com/products/cloud-application-platform/), and IBM offer the KubeCF-based [IBM CFEE](https://www.ibm.com/uk-en/cloud/cloud-foundry) too.
+- **[KubeCF](https://github.com/cloudfoundry-incubator/kubecf)** is currently the most widely-adopted Cloud Foundry distribution available for Kubernetes that you can install yourself. SUSE provide a commercial version called [SUSE Cloud Application Platform](https://www.suse.com/products/cloud-application-platform/), and IBM offer the KubeCF-based [IBM CFEE](https://www.ibm.com/uk-en/cloud/cloud-foundry) too.
 
-**[cf-for-k8s](https://github.com/cloudfoundry/cf-for-k8s)** is an on-going project that is repackaging Cloud Foundry for Kubernetes, and also switching some internal components for more Kubernetes-native equivalents. At the time of writing it is not ready for production use, but is making great progress.
+- **[cf-for-k8s](https://github.com/cloudfoundry/cf-for-k8s)** is an on-going project that is repackaging Cloud Foundry for Kubernetes, and also switching some internal components for more Kubernetes-native equivalents. At the time of writing it is not ready for production use, but is making great progress.
 
-It is the intention of the Cloud Foundry community and members of the Kubernetes SIG that KubeCF and cf-for-k8s converge. Plus, as the Cloud Foundry CLI and API are standardised and certified, you could easily switch between different [certified distributions](https://www.cloudfoundry.org/thefoundry/#cert-distros) if you wanted to.
+It is the intention of the Cloud Foundry community and members of the Kubernetes SIG that KubeCF and cf-for-k8s converge. Plus, as the Cloud Foundry CLI and API are standardized and certified, you could easily switch between different [certified distributions](https://www.cloudfoundry.org/thefoundry/#cert-distros) if you wanted to.
